@@ -3,29 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4742C639240D7879002489CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C638240D7879002489CD /* AppDelegate.swift */; };
-		4742C63B240D7879002489CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63A240D7879002489CD /* SceneDelegate.swift */; };
-		4742C63D240D7879002489CD /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63C240D7879002489CD /* FirstViewController.swift */; };
-		4742C63F240D7879002489CD /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63E240D7879002489CD /* SecondViewController.swift */; };
-		4742C642240D7879002489CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4742C640240D7879002489CD /* Main.storyboard */; };
+		4742C63D240D7879002489CD /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63C240D7879002489CD /* AboutVC.swift */; };
+		4742C63F240D7879002489CD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63E240D7879002489CD /* LoginVC.swift */; };
 		4742C644240D7879002489CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4742C643240D7879002489CD /* Assets.xcassets */; };
 		4742C647240D7879002489CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4742C645240D7879002489CD /* LaunchScreen.storyboard */; };
+		4742C64F240DA0E0002489CD /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C64E240DA0E0002489CD /* RegisterVC.swift */; };
+		4742C651240DA17B002489CD /* LoginOrRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C650240DA17B002489CD /* LoginOrRegisterVC.swift */; };
+		476DB46E240E934A0083C5EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476DB46D240E934A0083C5EE /* GoogleService-Info.plist */; };
+		476DB472240ED5150083C5EE /* DataCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB471240ED5150083C5EE /* DataCollectionVC.swift */; };
+		476DB474240ED5470083C5EE /* CenterAnnouncementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */; };
+		476DB476240EE87F0083C5EE /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB475240EE87F0083C5EE /* DataService.swift */; };
+		476DB478240EF41B0083C5EE /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB477240EF41B0083C5EE /* AdminVC.swift */; };
+		476DB47A240EF4BC0083C5EE /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB479240EF4BC0083C5EE /* StudentCell.swift */; };
+		479463E62411929800C5ECF3 /* MsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479463E52411929800C5ECF3 /* MsgCell.swift */; };
+		BF235AE962B4ADDAF9D02F2C /* Pods_Ritaj_Edu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F4DB1AD7BBDED5852F1465 /* Pods_Ritaj_Edu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C9F6CDC088A8E8FF7BD2EDD /* Pods-Ritaj-Edu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ritaj-Edu.debug.xcconfig"; path = "Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu.debug.xcconfig"; sourceTree = "<group>"; };
 		4742C635240D7879002489CD /* Ritaj-Edu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ritaj-Edu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4742C638240D7879002489CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4742C63A240D7879002489CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4742C63C240D7879002489CD /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		4742C63E240D7879002489CD /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		4742C641240D7879002489CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4742C63C240D7879002489CD /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		4742C63E240D7879002489CD /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		4742C643240D7879002489CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4742C646240D7879002489CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4742C648240D7879002489CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4742C64E240DA0E0002489CD /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		4742C650240DA17B002489CD /* LoginOrRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrRegisterVC.swift; sourceTree = "<group>"; };
+		476DB46D240E934A0083C5EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		476DB471240ED5150083C5EE /* DataCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionVC.swift; sourceTree = "<group>"; };
+		476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAnnouncementsVC.swift; sourceTree = "<group>"; };
+		476DB475240EE87F0083C5EE /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		476DB477240EF41B0083C5EE /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
+		476DB479240EF4BC0083C5EE /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
+		479463E52411929800C5ECF3 /* MsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgCell.swift; sourceTree = "<group>"; };
+		D548B7EFA8B2A84936557BDA /* Pods-Ritaj-Edu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ritaj-Edu.release.xcconfig"; path = "Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu.release.xcconfig"; sourceTree = "<group>"; };
+		F2F4DB1AD7BBDED5852F1465 /* Pods_Ritaj_Edu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ritaj_Edu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF235AE962B4ADDAF9D02F2C /* Pods_Ritaj_Edu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +63,9 @@
 			children = (
 				4742C637240D7879002489CD /* Ritaj-Edu */,
 				4742C636240D7879002489CD /* Products */,
+				476DB46D240E934A0083C5EE /* GoogleService-Info.plist */,
+				B5DEE3F68410E768A63A746E /* Pods */,
+				C1A9004894256BB3B0070224 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +80,63 @@
 		4742C637240D7879002489CD /* Ritaj-Edu */ = {
 			isa = PBXGroup;
 			children = (
-				4742C638240D7879002489CD /* AppDelegate.swift */,
-				4742C63A240D7879002489CD /* SceneDelegate.swift */,
-				4742C63C240D7879002489CD /* FirstViewController.swift */,
-				4742C63E240D7879002489CD /* SecondViewController.swift */,
-				4742C640240D7879002489CD /* Main.storyboard */,
+				47887F8D2411818600AE8EAD /* Model */,
+				47887F8C2411817A00AE8EAD /* View */,
+				47887F8B2411817200AE8EAD /* Controller */,
 				4742C643240D7879002489CD /* Assets.xcassets */,
 				4742C645240D7879002489CD /* LaunchScreen.storyboard */,
 				4742C648240D7879002489CD /* Info.plist */,
 			);
 			path = "Ritaj-Edu";
+			sourceTree = "<group>";
+		};
+		47887F8B2411817200AE8EAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4742C638240D7879002489CD /* AppDelegate.swift */,
+				4742C63C240D7879002489CD /* AboutVC.swift */,
+				4742C63E240D7879002489CD /* LoginVC.swift */,
+				4742C64E240DA0E0002489CD /* RegisterVC.swift */,
+				4742C650240DA17B002489CD /* LoginOrRegisterVC.swift */,
+				476DB471240ED5150083C5EE /* DataCollectionVC.swift */,
+				476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */,
+				476DB477240EF41B0083C5EE /* AdminVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		47887F8C2411817A00AE8EAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				476DB479240EF4BC0083C5EE /* StudentCell.swift */,
+				479463E52411929800C5ECF3 /* MsgCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		47887F8D2411818600AE8EAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				476DB475240EE87F0083C5EE /* DataService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5DEE3F68410E768A63A746E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C9F6CDC088A8E8FF7BD2EDD /* Pods-Ritaj-Edu.debug.xcconfig */,
+				D548B7EFA8B2A84936557BDA /* Pods-Ritaj-Edu.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C1A9004894256BB3B0070224 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F2F4DB1AD7BBDED5852F1465 /* Pods_Ritaj_Edu.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4742C64B240D7879002489CD /* Build configuration list for PBXNativeTarget "Ritaj-Edu" */;
 			buildPhases = (
+				BA0BD372A83FECB9422A2360 /* [CP] Check Pods Manifest.lock */,
 				4742C631240D7879002489CD /* Sources */,
 				4742C632240D7879002489CD /* Frameworks */,
 				4742C633240D7879002489CD /* Resources */,
+				4D75B8597310A37DC84E8300 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,35 +201,76 @@
 			files = (
 				4742C647240D7879002489CD /* LaunchScreen.storyboard in Resources */,
 				4742C644240D7879002489CD /* Assets.xcassets in Resources */,
-				4742C642240D7879002489CD /* Main.storyboard in Resources */,
+				476DB46E240E934A0083C5EE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D75B8597310A37DC84E8300 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA0BD372A83FECB9422A2360 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ritaj-Edu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4742C631240D7879002489CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4742C63F240D7879002489CD /* SecondViewController.swift in Sources */,
-				4742C63D240D7879002489CD /* FirstViewController.swift in Sources */,
+				4742C63F240D7879002489CD /* LoginVC.swift in Sources */,
+				476DB474240ED5470083C5EE /* CenterAnnouncementsVC.swift in Sources */,
+				4742C651240DA17B002489CD /* LoginOrRegisterVC.swift in Sources */,
+				4742C64F240DA0E0002489CD /* RegisterVC.swift in Sources */,
+				4742C63D240D7879002489CD /* AboutVC.swift in Sources */,
+				476DB47A240EF4BC0083C5EE /* StudentCell.swift in Sources */,
+				476DB472240ED5150083C5EE /* DataCollectionVC.swift in Sources */,
 				4742C639240D7879002489CD /* AppDelegate.swift in Sources */,
-				4742C63B240D7879002489CD /* SceneDelegate.swift in Sources */,
+				476DB478240EF41B0083C5EE /* AdminVC.swift in Sources */,
+				479463E62411929800C5ECF3 /* MsgCell.swift in Sources */,
+				476DB476240EE87F0083C5EE /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4742C640240D7879002489CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4742C641240D7879002489CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4742C645240D7879002489CD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -286,11 +398,13 @@
 		};
 		4742C64C240D7879002489CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9F6CDC088A8E8FF7BD2EDD /* Pods-Ritaj-Edu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5694RS5;
 				INFOPLIST_FILE = "Ritaj-Edu/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +418,13 @@
 		};
 		4742C64D240D7879002489CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D548B7EFA8B2A84936557BDA /* Pods-Ritaj-Edu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5694RS5;
 				INFOPLIST_FILE = "Ritaj-Edu/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
