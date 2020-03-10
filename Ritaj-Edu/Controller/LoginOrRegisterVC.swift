@@ -32,6 +32,7 @@ class LoginOrRegisterVC:UIViewController{
         txt.text = "Register or login to receive updates and notifications regarding your subjects"
         txt.font = UIFont.systemFont(ofSize: 20)
         txt.textAlignment = .center
+        txt.isEditable = false
         return txt
     }()
     let logOutBtn:UIButton={
@@ -55,6 +56,8 @@ class LoginOrRegisterVC:UIViewController{
     var logOutBtnWidthConstraint : NSLayoutConstraint?
     var logOutBtnHeightConstraint : NSLayoutConstraint?
     var logOutBtnTrailingConstraint : NSLayoutConstraint?
+    var logInBtnHeightConstraint : NSLayoutConstraint?
+    var registerBtnHeightConstraint : NSLayoutConstraint?
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -92,6 +95,8 @@ class LoginOrRegisterVC:UIViewController{
         logOutBtnWidthConstraint?.isActive = false
         logOutBtnHeightConstraint?.isActive = false
         logOutBtnTrailingConstraint?.isActive = false
+        registerBtnHeightConstraint?.isActive = false
+        logInBtnHeightConstraint?.isActive = false
         
     }
     func setupViewsForSignedInUser(email:String){
@@ -128,6 +133,10 @@ class LoginOrRegisterVC:UIViewController{
         stackNoUserleadingConstraint?.isActive = false
         stackNoUserTrailingConstraint?.isActive = false
         stackNoUserbottomConstraint?.isActive = false
+        registerBtnHeightConstraint = registerBtn.heightAnchor.constraint(equalToConstant: 0)
+        registerBtnHeightConstraint?.isActive = true
+        logInBtnHeightConstraint = loginBtn.heightAnchor.constraint(equalToConstant: 0)
+        logInBtnHeightConstraint?.isActive = true
         
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -108,7 +108,7 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
-                self.showAlert(msg: "Registeration successful", title: "Success", signIn: nil)
+                //self.showAlert(msg: "Registeration successful", title: "Success", signIn: nil)
             }
         }
         }else{

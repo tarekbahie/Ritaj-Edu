@@ -9,4 +9,5 @@ target 'Ritaj-Edu' do
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
+pod 'SVProgressHUD', '~> 2.2'
 end

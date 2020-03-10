@@ -43,6 +43,8 @@ class AdminVC:UIViewController,UICollectionViewDelegateFlowLayout, UICollectionV
     var sN = [String]()
     var sG = [String]()
     var s1Subs = [String]()
+    var s21Subjects:[String]?
+    var s22Subjects:[String]?
     var s2Subs = [String](){
         didSet{
             collectionView.reloadData()
@@ -69,11 +71,13 @@ class AdminVC:UIViewController,UICollectionViewDelegateFlowLayout, UICollectionV
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.getStudentsUpdatedData { (names, ages, sNames, sGrades, sat1, sat2,emai)  in
+        DataService.instance.getStudentsUpdatedData { (names, ages, sNames, sGrades, sat1, sat2,emai,s21Subs,s22Subs)   in
             self.n = names
             self.a = ages
             self.sN = sNames
             self.sG = sGrades
+            self.s21Subjects = s21Subs
+            self.s22Subjects = s22Subs
             self.s1Subs = sat1
             self.s2Subs = sat2
         }
@@ -82,12 +86,16 @@ class AdminVC:UIViewController,UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        s2Subs.count
+        n.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studentCell", for: indexPath) as! StudentCell
-        cell.configureCell(name: n[indexPath.item], age: a[indexPath.item], sName: sN[indexPath.item], sGrade: sG[indexPath.item], s1: s1Subs[indexPath.item], s2: s2Subs[indexPath.item])
+        if let s21 = s21Subjects,let s22 = s22Subjects{
+            cell.configureCell(name: n[indexPath.item], age: a[indexPath.item], sName: sN[indexPath.item], sGrade: sG[indexPath.item], s1: s1Subs[indexPath.item], s2: s2Subs[indexPath.item], s21: s21[indexPath.item], s22: s22[indexPath.item])
+        }else{
+            cell.configureCell(name: n[indexPath.item], age: a[indexPath.item], sName: sN[indexPath.item], sGrade: sG[indexPath.item], s1: s1Subs[indexPath.item], s2: s2Subs[indexPath.item], s21: "", s22: "")
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

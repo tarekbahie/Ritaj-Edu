@@ -43,18 +43,32 @@ class DataCollectionVC:UIViewController{
         txt.tag = 103
         return txt
     }()
-    let satSubject1 : UITextField = {
+    let sat1Subject1 : UITextField = {
         let txt = UITextField()
         txt.backgroundColor = UIColor.systemTeal
         txt.attributedPlaceholder = NSAttributedString(string: "First SAT subject", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
         txt.tag = 104
         return txt
     }()
-    let satSubject2 : UITextField = {
+    let sat1Subject2 : UITextField = {
         let txt = UITextField()
         txt.backgroundColor = UIColor.systemTeal
         txt.attributedPlaceholder = NSAttributedString(string: "Second SAT subject", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
         txt.tag = 105
+        return txt
+    }()
+    let sat2Subject1 : UITextField = {
+        let txt = UITextField()
+        txt.backgroundColor = UIColor.systemTeal
+        txt.attributedPlaceholder = NSAttributedString(string: "First SAT II subject", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.tag = 110
+        return txt
+    }()
+    let sat2Subject2 : UITextField = {
+        let txt = UITextField()
+        txt.backgroundColor = UIColor.systemTeal
+        txt.attributedPlaceholder = NSAttributedString(string: "Second SAT II subject", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.tag = 111
         return txt
     }()
     let updateData:UIButton={
@@ -83,8 +97,17 @@ class DataCollectionVC:UIViewController{
         txt.text = nil
         txt.font = UIFont.systemFont(ofSize: 20)
         txt.textAlignment = .center
-        txt.isUserInteractionEnabled = false
+        txt.isEditable = false
         txt.tag = 109
+        return txt
+    }()
+    let txt2 : UITextView = {
+        let txt = UITextView()
+        txt.text = "Enter these subjects only if you are registering for SAT II"
+        txt.font = UIFont.systemFont(ofSize: 12)
+        txt.textAlignment = .center
+        txt.isEditable = false
+        txt.tag = 112
         return txt
     }()
     var n = [String]()
@@ -103,6 +126,7 @@ class DataCollectionVC:UIViewController{
     var admStackLead:NSLayoutConstraint?
     
     var txtHeightConst:NSLayoutConstraint?
+    var txt2HeightConst:NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -134,17 +158,21 @@ class DataCollectionVC:UIViewController{
         stack2.axis = .horizontal
         stack2.distribution = .fillEqually
         stack2.spacing = 10
-        let stack3 = UIStackView(arrangedSubviews: [satSubject1,satSubject2])
+        let stack3 = UIStackView(arrangedSubviews: [sat1Subject1,sat1Subject2])
         stack3.axis = .horizontal
         stack3.distribution = .fillEqually
         stack3.spacing = 10
-        let stack = UIStackView(arrangedSubviews: [image,stack1,stack2,stack3,updateData])
+        let stack4 = UIStackView(arrangedSubviews: [sat2Subject1,sat2Subject2])
+        stack4.axis = .horizontal
+        stack4.distribution = .fillEqually
+        stack4.spacing = 10
+        let stack = UIStackView(arrangedSubviews: [image,stack1,stack2,stack3,txt2,stack4,updateData])
         stack.axis = .vertical
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
 
-        newStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        newStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5)
         newStackTop?.isActive = true
         newStackLead = stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10)
         newStackLead?.isActive = true
@@ -152,6 +180,8 @@ class DataCollectionVC:UIViewController{
         newStackTrail?.isActive = true
         newStackHeight = stack.heightAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.height / 2)
         newStackHeight?.isActive = true
+        txt2HeightConst = txt2.heightAnchor.constraint(equalToConstant: 20)
+        txt2HeightConst?.isActive = true
         
         oldStackTop?.isActive = false
         oldStackTrail?.isActive = false
@@ -175,13 +205,13 @@ class DataCollectionVC:UIViewController{
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         
-        admStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        admStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5)
         admStackTop?.isActive = true
         admStackLead = stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10)
         admStackLead?.isActive = true
         admStackTrail = stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10)
         admStackTrail?.isActive = true
-        admStackBottom = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        admStackBottom = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -5)
         admStackBottom?.isActive = true
         
         txtHeightConst = txt.heightAnchor.constraint(equalToConstant: 80)
@@ -195,8 +225,12 @@ class DataCollectionVC:UIViewController{
         newStackTrail?.isActive = false
         newStackLead?.isActive = false
         newStackHeight?.isActive = false
+        txt2HeightConst?.isActive = false
         
         for i in 100...107{
+            view.viewWithTag(i)?.removeFromSuperview()
+        }
+        for i in 110...112{
             view.viewWithTag(i)?.removeFromSuperview()
         }
         
@@ -209,13 +243,13 @@ class DataCollectionVC:UIViewController{
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         
-        oldStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        oldStackTop = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5)
         oldStackTop?.isActive = true
         oldStackLead = stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10)
         oldStackLead?.isActive = true
         oldStackTrail = stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10)
         oldStackTrail?.isActive = true
-        oldStackBottom = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        oldStackBottom = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -5)
         oldStackBottom?.isActive = true
         txtHeightConst = txt.heightAnchor.constraint(equalToConstant: 80)
         txtHeightConst?.isActive = true
@@ -228,8 +262,13 @@ class DataCollectionVC:UIViewController{
         admStackLead?.isActive = false
         admStackTrail?.isActive = false
         admStackBottom?.isActive = false
+        txt2HeightConst?.isActive = false
         
         for i in 100...106{
+            view.viewWithTag(i)?.removeFromSuperview()
+        }
+        view.viewWithTag(108)?.removeFromSuperview()
+        for i in 110...112{
             view.viewWithTag(i)?.removeFromSuperview()
         }
         
@@ -239,8 +278,8 @@ class DataCollectionVC:UIViewController{
     }
     @objc func handleData(){
         if let email = Auth.auth().currentUser?.email{
-            if let fN = fullName.text, fN != "", let a = age.text,a != "", let sN = schoolName.text, sN != "",let sG = schoolGrade.text, sG != "", let sat1 = satSubject1.text, sat1 != "" , let sat2 = satSubject2.text, sat2 != "" {
-                DataService.instance.sendStudentUpdatedData(fN: fN, a: a, sN: sN, sG: sG, sat1: sat1, sat2: sat2, email: email) { (succ,err) in
+            if let fN = fullName.text, fN != "", let a = age.text,a != "", let sN = schoolName.text, sN != "",let sG = schoolGrade.text, sG != "", let sat1 = sat1Subject1.text, sat1 != "" , let sat2 = sat1Subject2.text, sat2 != "",let sat21 = sat2Subject1.text,let s22 = sat2Subject2.text {
+                DataService.instance.sendStudentUpdatedData(fN: fN, a: a, sN: sN, sG: sG, sat1: sat1, sat2: sat2, email: email, s21Sub: sat21, s22Sub: s22) { (succ,err) in
                     if let error = err{
                         self.showAlert(msg: error, title: "Error updating")
                     }else{

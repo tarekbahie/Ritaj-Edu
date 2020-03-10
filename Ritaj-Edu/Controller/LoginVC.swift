@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class LoginVC: UIViewController,UITextFieldDelegate {
     let image : UIImageView = {
@@ -96,11 +97,18 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         passTxtField.resignFirstResponder()
     }
     @objc func handleLogin(){
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultMaskType(.gradient)
+        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setHapticsEnabled(true)
         if let e = emailTxtField.text , e != "", let p = passTxtField.text, p != "" {
+            SVProgressHUD.show()
             Auth.auth().signIn(withEmail: e, password: p) { (res, err) in
                 if let signinErr = err{
+                    SVProgressHUD.dismiss()
                     self.showAlert(msg: signinErr.localizedDescription, title: "Error signing in", signIn: nil)
                 }else{
+                    SVProgressHUD.dismiss()
                     self.dismiss(animated: true, completion: nil)
                 }
             }

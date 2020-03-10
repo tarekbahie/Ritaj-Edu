@@ -7,33 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "88003487-1019-4A02-8F8C-0FA6C4C035DC"
+            uuid = "AEF79116-846D-42BA-A844-C6EADD80E3C5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Ritaj-Edu/Model/DataService.swift"
+            filePath = "Ritaj-Edu/Controller/DataCollectionVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getStudentsUpdatedData(comp:)"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "handleData()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8F4F5624-B581-4448-B7F4-87E8CBB0B267"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ritaj-Edu/Model/DataService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "getStudentsUpdatedData(comp:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AEF79116-846D-42BA-A844-C6EADD80E3C5 - 9bf4bc77eb393b65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Ritaj_Edu.DataCollectionVC.handleData() -&gt; ()"
+                  moduleName = "Ritaj-Edu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tarekbahie/Desktop/ios/Ritaj-Edu/Ritaj-Edu/Controller/DataCollectionVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "4392">
+               </Location>
+               <Location
+                  uuid = "AEF79116-846D-42BA-A844-C6EADD80E3C5 - 88692e03678f2ba8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.String&gt;) -&gt; () in Ritaj_Edu.DataCollectionVC.handleData() -&gt; ()"
+                  moduleName = "Ritaj-Edu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tarekbahie/Desktop/ios/Ritaj-Edu/Ritaj-Edu/Controller/DataCollectionVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "162">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
