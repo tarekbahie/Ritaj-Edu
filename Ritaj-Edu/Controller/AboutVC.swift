@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutVC: UINavigationController {
+class AboutVC: UIViewController {
     let image : UIImageView = {
         let img = UIImageView()
         img.image = UIImage(named: "retaj")
@@ -17,19 +17,24 @@ class AboutVC: UINavigationController {
     }()
     let txt : UITextView = {
         let txt = UITextView()
-        txt.text = "Retaj Center The first leading center in Egypt serves all issues related to American Diploma : SAT I ( Math , English) and SAT II (physics , Biology , Math SAT II , chemistry) and CollegeBoard questions.\n What is SAT? \n SAT is a globally recognized college admission test that lets you show colleges what you know and how well you can apply that knowledge. It tests your knowledge of reading, writing and math — subjects that are taught every day in high school classrooms. Most students take the SAT during their junior or senior year of high school, and almost all colleges and universities use the SAT to make admission decisions.Taking the SAT is the first step in finding the right college and retaj is the place to help you achieve all your goals."
-        txt.font = UIFont.systemFont(ofSize: 20)
-        txt.textAlignment = .center
+        txt.text = "Retaj Center The first leading center in Egypt serves all issues related to American Diploma : SAT I ( Math , English) and SAT II (physics , Biology , Math SAT II , chemistry) and CollegeBoard questions."
+        txt.textAlignment = .justified
         txt.isEditable = false
+        txt.backgroundColor = UIColor(named: "retajGreen")
+        txt.textColor = UIColor(named: "retajBlue")
         return txt
     }()
+    var size:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.systemBackground
-        } else {
-            view.backgroundColor = .white
+        self.navigationItem.title = "About"
+        view.backgroundColor = UIColor(named: "retajGreen")
+        switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
+        case (.regular, .regular):
+            setupRegularRegular()
+            break
+        default: setupFontSize()
         }
         
     }
@@ -40,11 +45,24 @@ class AboutVC: UINavigationController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         
-        stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        stack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10).isActive = true
         stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10).isActive = true
-        stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        stack.heightAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.height / 1.5).isActive = true
+        image.heightAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.height / 3).isActive = true
         
+    }
+    func setupRegularRegular(){
+        size = "ipad"
+        DataService.instance.size = size
+        setupFontSize()
+    }
+    func setupFontSize(){
+        if let s = size, s == "ipad"{
+            txt.font = UIFont.systemFont(ofSize: 40)
+        }else{
+            txt.font = UIFont.systemFont(ofSize: 20)
+        }
     }
 
 }

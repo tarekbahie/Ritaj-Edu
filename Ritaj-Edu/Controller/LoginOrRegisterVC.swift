@@ -17,29 +17,29 @@ class LoginOrRegisterVC:UIViewController{
     }()
     let loginBtn:UIButton={
         let btn = UIButton()
-        btn.setTitle("Login", for: .normal)
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajBlue")
+        btn.tag = 100
         return btn
     }()
     let registerBtn:UIButton={
         let btn = UIButton()
-        btn.setTitle("Register", for: .normal)
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajBlue")
+        btn.tag = 101
         return btn
     }()
     let txt : UITextView = {
         let txt = UITextView()
-        txt.text = "Register or login to receive updates and notifications regarding your subjects"
-        txt.font = UIFont.systemFont(ofSize: 20)
         txt.textAlignment = .center
         txt.isEditable = false
+        txt.tag = 102
         return txt
     }()
     let logOutBtn:UIButton={
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Logout", for: .normal)
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajGreen")
+        btn.tag = 103
         return btn
     }()
     
@@ -58,34 +58,19 @@ class LoginOrRegisterVC:UIViewController{
     var logOutBtnTrailingConstraint : NSLayoutConstraint?
     var logInBtnHeightConstraint : NSLayoutConstraint?
     var registerBtnHeightConstraint : NSLayoutConstraint?
+    var size:String?
     
     override func viewDidLoad() {
-    super.viewDidLoad()
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "retajGreen")
     }
     func setupViewsForNoUserSignedIn(){
         let stack = UIStackView(arrangedSubviews: [image,loginBtn,registerBtn,txt])
-        txt.text = nil
+//        txt.text = nil
         stack.axis = .vertical
         stack.distribution = .equalCentering
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
-        
-        stackNoUserTopConstraint = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
-        stackNoUserTopConstraint?.isActive = true
-        stackNoUserleadingConstraint = stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10)
-        stackNoUserleadingConstraint?.isActive = true
-        stackNoUserTrailingConstraint = stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10)
-        stackNoUserTrailingConstraint?.isActive = true
-        stackNoUserbottomConstraint = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        stackNoUserbottomConstraint?.isActive = true
-        
-        txtNoUserHeightConstraint = txt.heightAnchor.constraint(equalToConstant: 80)
-        txtNoUserHeightConstraint?.isActive = true
         
         stackUserTopConstraint?.isActive = false
         stackUserbottomConstraint?.isActive = false
@@ -98,6 +83,20 @@ class LoginOrRegisterVC:UIViewController{
         registerBtnHeightConstraint?.isActive = false
         logInBtnHeightConstraint?.isActive = false
         
+        stackNoUserTopConstraint = stack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 10)
+        stackNoUserTopConstraint?.isActive = true
+        stackNoUserleadingConstraint = stack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10)
+        stackNoUserleadingConstraint?.isActive = true
+        stackNoUserTrailingConstraint = stack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -10)
+        stackNoUserTrailingConstraint?.isActive = true
+        stackNoUserbottomConstraint = stack.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -10)
+        stackNoUserbottomConstraint?.isActive = true
+        
+        txtNoUserHeightConstraint = txt.heightAnchor.constraint(equalToConstant: 80)
+        txtNoUserHeightConstraint?.isActive = true
+        image.heightAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.height / 3).isActive = true
+        view.viewWithTag(103)?.removeFromSuperview()
+        
     }
     func setupViewsForSignedInUser(email:String){
         txt.text = email
@@ -108,11 +107,11 @@ class LoginOrRegisterVC:UIViewController{
         view.addSubview(stack)
         view.addSubview(logOutBtn)
         
-        logOutBtnTopConstraint =  logOutBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        logOutBtnTopConstraint =  logOutBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 10)
         logOutBtnTopConstraint?.isActive = true
         logOutBtnTrailingConstraint = logOutBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         logOutBtnTrailingConstraint?.isActive = true
-        logOutBtnWidthConstraint = logOutBtn.widthAnchor.constraint(equalToConstant: 70)
+        logOutBtnWidthConstraint = logOutBtn.widthAnchor.constraint(equalToConstant: 100)
         logOutBtnWidthConstraint?.isActive = true
         logOutBtnHeightConstraint = logOutBtn.heightAnchor.constraint(equalToConstant: 30)
         logOutBtnHeightConstraint?.isActive = true
@@ -133,14 +132,17 @@ class LoginOrRegisterVC:UIViewController{
         stackNoUserleadingConstraint?.isActive = false
         stackNoUserTrailingConstraint?.isActive = false
         stackNoUserbottomConstraint?.isActive = false
-        registerBtnHeightConstraint = registerBtn.heightAnchor.constraint(equalToConstant: 0)
-        registerBtnHeightConstraint?.isActive = true
-        logInBtnHeightConstraint = loginBtn.heightAnchor.constraint(equalToConstant: 0)
-        logInBtnHeightConstraint?.isActive = true
+        registerBtnHeightConstraint?.isActive = false
+        logInBtnHeightConstraint?.isActive = false
+        image.heightAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.height / 3).isActive = true
+        for i in 100...101{
+            view.viewWithTag(i)?.removeFromSuperview()
+        }
         
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupFontSize()
         self.navigationItem.title = "Account"
         registerBtn.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         loginBtn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
@@ -177,5 +179,25 @@ class LoginOrRegisterVC:UIViewController{
             alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    func setupFontSize(){
+        guard let _ = DataService.instance.size else{
+            loginBtn.setAttributedTitle(NSAttributedString(string: "Sign in", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajGreen")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)]), for: .normal)
+            registerBtn.setAttributedTitle(NSAttributedString(string: "Register a new user", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajGreen")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)]), for: .normal)
+            logOutBtn.setAttributedTitle(NSAttributedString(string: "Logout", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajBlue")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20)]), for: .normal)
+            txt.font = UIFont.systemFont(ofSize: 15)
+            txt.text = "Register or sign in to receive updates and notifications regarding your subjects"
+            txt.backgroundColor = UIColor(named: "retajGreen")
+            txt.textColor = UIColor(named: "retajBlue")
+            return
+        }
+        loginBtn.setAttributedTitle(NSAttributedString(string: "Sign in", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajBlue")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 40),NSAttributedString.Key.foregroundColor: UIColor(named: "retajGreen")!]), for: .normal)
+        registerBtn.setAttributedTitle(NSAttributedString(string: "Register a new user", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajBlue")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 40),NSAttributedString.Key.foregroundColor: UIColor(named: "retajGreen")!]), for: .normal)
+        logOutBtn.setAttributedTitle(NSAttributedString(string: "Logout", attributes: [NSAttributedString.Key.foregroundColor:UIColor(named: "retajBlue")!,NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20),NSAttributedString.Key.foregroundColor: UIColor(named: "retajGreen")!]), for: .normal)
+        txt.font = UIFont.systemFont(ofSize: 30)
+        txt.text = "Register or sign in to receive updates and notifications regarding your subjects"
+        txt.backgroundColor = UIColor(named: "retajGreen")
+        txt.textColor = UIColor(named: "retajBlue")
+        
     }
 }

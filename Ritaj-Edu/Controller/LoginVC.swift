@@ -20,21 +20,20 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     }()
     let emailTxtField : UITextField = {
         let txt = UITextField()
-        txt.backgroundColor = UIColor.systemTeal
-        txt.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.backgroundColor = UIColor(named: "retajBlue")
+        txt.autocapitalizationType = .none
         return txt
     }()
     let passTxtField : UITextField = {
         let txt = UITextField()
-        txt.backgroundColor = UIColor.systemTeal
-        txt.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.backgroundColor = UIColor(named: "retajBlue")
         txt.isSecureTextEntry = true
+        txt.autocapitalizationType = .none
         return txt
     }()
     let loginBtn:UIButton={
         let btn = UIButton()
-        btn.setTitle("Login", for: .normal)
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajBlue")
         return btn
     }()
     let closeBtn:UIButton={
@@ -46,23 +45,25 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             btn.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
         }
         btn.tintColor = .black
-        btn.backgroundColor = UIColor.systemBlue
-        btn.layer.cornerRadius = 25.0
+        btn.backgroundColor = UIColor(named: "retajBlue")
         return btn
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        setupCloseBtnView()
         closeBtn.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = UIColor(named: "retajGreen")
     }
+    var stackHeightAnc : NSLayoutConstraint?
+    var emailHeightAnc : NSLayoutConstraint?
+    var passwHeightAnc : NSLayoutConstraint?
+    var loginHeightAnc : NSLayoutConstraint?
+    var closeBtnHeightAnc : NSLayoutConstraint?
+    var closeBtnWidthtAnc : NSLayoutConstraint?
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupViews()
+        setupCloseBtnView()
+        setupFontSize()
         emailTxtField.delegate = self
         passTxtField.delegate = self
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
@@ -72,7 +73,6 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         let stack = UIStackView(arrangedSubviews: [emailTxtField,passTxtField,loginBtn])
         stack.axis = .vertical
         stack.distribution = .equalCentering
-        stack.spacing = 10.0
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         view.addSubview(image)
@@ -84,12 +84,16 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         
         stack.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         stack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        stack.widthAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.width).isActive = true
-        stack.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        stack.widthAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.width - 20).isActive = true
+        stackHeightAnc = stack.heightAnchor.constraint(equalToConstant: 0)
+        stackHeightAnc?.isActive = true
         
-        emailTxtField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        passTxtField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        loginBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        emailHeightAnc = emailTxtField.heightAnchor.constraint(equalToConstant: 0)
+        emailHeightAnc?.isActive = true
+        passwHeightAnc = passTxtField.heightAnchor.constraint(equalToConstant: 0)
+        passwHeightAnc?.isActive = true
+        loginHeightAnc = loginBtn.heightAnchor.constraint(equalToConstant: 0)
+        loginHeightAnc?.isActive = true
         
     }
     @objc func handleTap(){
@@ -103,12 +107,14 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         SVProgressHUD.setHapticsEnabled(true)
         if let e = emailTxtField.text , e != "", let p = passTxtField.text, p != "" {
             SVProgressHUD.show()
-            Auth.auth().signIn(withEmail: e, password: p) { (res, err) in
+            Auth.auth().signIn(withEmail: e.lowercased(), password: p) { (res, err) in
                 if let signinErr = err{
                     SVProgressHUD.dismiss()
                     self.showAlert(msg: signinErr.localizedDescription, title: "Error signing in", signIn: nil)
                 }else{
                     SVProgressHUD.dismiss()
+//                    let pushManager = PushNotificationManager(userID: e)
+//                    pushManager.registerForPushNotifications()
                     self.dismiss(animated: true, completion: nil)
                 }
             }
@@ -128,11 +134,39 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         view.addSubview(closeBtn)
         closeBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5).isActive = true
         closeBtn.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -5).isActive = true
-        closeBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        closeBtn.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        closeBtnHeightAnc = closeBtn.heightAnchor.constraint(equalToConstant: 0)
+        closeBtnHeightAnc?.isActive = true
+        closeBtnWidthtAnc = closeBtn.widthAnchor.constraint(equalToConstant: 0)
+        closeBtnWidthtAnc?.isActive = true
     }
     @objc func handleClose(){
         self.dismiss(animated: true, completion: nil)
+    }
+    func setupFontSize(){
+        guard let _ = DataService.instance.size else{
+            closeBtnHeightAnc?.constant = 50
+            closeBtnWidthtAnc?.constant = 50
+            loginHeightAnc?.constant = 40
+            passwHeightAnc?.constant = 40
+            emailHeightAnc?.constant = 40
+            stackHeightAnc?.constant = 140
+            emailTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20)])
+            passTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20)])
+            loginBtn.setAttributedTitle(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20) ]), for: .normal)
+            closeBtn.layer.cornerRadius = 25.0
+            return
+        }
+        closeBtnHeightAnc?.constant = 50
+        closeBtnWidthtAnc?.constant = 50
+        loginHeightAnc?.constant = 80
+        passwHeightAnc?.constant = 80
+        emailHeightAnc?.constant = 80
+        stackHeightAnc?.constant = 280
+        emailTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40)])
+        passTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40)])
+        loginBtn.setAttributedTitle(NSAttributedString(string: "Login", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40) ]), for: .normal)
+        closeBtn.layer.cornerRadius = 25.0
+        
     }
 
 }

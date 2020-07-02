@@ -10,64 +10,119 @@ import UIKit
 class StudentCell:UICollectionViewCell{
     let label1 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label2 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label3 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label4 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label5 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label6 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label7 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
     }()
     let label8 : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.italicSystemFont(ofSize: 18)
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label9 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label10 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label11 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label12 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label13 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label14 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label15 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label16 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
+        lbl.textAlignment = .center
+        lbl.numberOfLines = 0
+        return lbl
+    }()
+    let label17 : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = UIColor(named: "retajBlue")
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
         return lbl
@@ -103,7 +158,19 @@ class StudentCell:UICollectionViewCell{
         stack4.axis = .horizontal
         stack4.distribution = .fillEqually
         stack4.spacing = 10
-        let stack = UIStackView(arrangedSubviews: [stack1,stack2,stack3,stack4])
+        let stack5 = UIStackView(arrangedSubviews: [label9,label10])
+        stack5.axis = .horizontal
+        stack5.distribution = .fillEqually
+        stack5.spacing = 10
+        let stack6 = UIStackView(arrangedSubviews: [label11,label12])
+        stack6.axis = .horizontal
+        stack6.distribution = .fillEqually
+        stack6.spacing = 10
+        let stack7 = UIStackView(arrangedSubviews: [label13,label14,label15])
+        stack7.axis = .horizontal
+        stack7.distribution = .fillEqually
+        stack7.spacing = 10
+        let stack = UIStackView(arrangedSubviews: [stack1,stack2,stack3,stack4,stack5,stack6,stack7,label17,label16])
         stack.axis = .vertical
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -113,17 +180,96 @@ class StudentCell:UICollectionViewCell{
         stack.widthAnchor.constraint(equalToConstant: safeAreaLayoutGuide.layoutFrame.width).isActive = true
         stack.heightAnchor.constraint(equalToConstant: safeAreaLayoutGuide.layoutFrame.height).isActive = true
     }
-    func configureCell(name:String,age:String,sName:String,sGrade:String,s1:String,s2:String,s21:String,s22:String){
-        label1.text = "Name : \n\(name)"
-        label2.text = "Age: \n\(age)"
-        label3.text = "School Name : \n\(sName)"
-        label4.text = "Grade: \n\(sGrade)"
-        label5.text = "Subject 1: \n\(s1)"
-        label6.text = "Subject 2: \n\(s2)"
-        if s21 != "", s22 != ""{
-            label7.text = "SAT II Subject 1: \n\(s21)"
-            label8.text = "SAT II Subject 2: \n\(s22)"
+    fileprivate func setupFont(_ size: String?) {
+        if let s = size, s == "ipad"{
+            label1.font = UIFont.systemFont(ofSize: 36)
+            label2.font = UIFont.systemFont(ofSize: 36)
+            label3.font = UIFont.systemFont(ofSize: 36)
+            label4.font = UIFont.systemFont(ofSize: 36)
+            label9.font = UIFont.systemFont(ofSize: 36)
+            label5.font = UIFont.systemFont(ofSize: 36)
+            label6.font = UIFont.systemFont(ofSize: 36)
+            label7.font = UIFont.systemFont(ofSize: 36)
+            label8.font = UIFont.systemFont(ofSize: 36)
+            label10.font = UIFont.systemFont(ofSize: 36)
+            label11.font = UIFont.systemFont(ofSize: 36)
+            label12.font = UIFont.systemFont(ofSize: 36)
+            label13.font = UIFont.systemFont(ofSize: 36)
+            label14.font = UIFont.systemFont(ofSize: 36)
+            label15.font = UIFont.systemFont(ofSize: 36)
+        }else{
+            label1.font = UIFont.systemFont(ofSize: 18)
+            label2.font = UIFont.systemFont(ofSize: 18)
+            label3.font = UIFont.systemFont(ofSize: 18)
+            label4.font = UIFont.systemFont(ofSize: 18)
+            label9.font = UIFont.systemFont(ofSize: 18)
+            label5.font = UIFont.systemFont(ofSize: 18)
+            label6.font = UIFont.systemFont(ofSize: 18)
+            label7.font = UIFont.systemFont(ofSize: 18)
+            label8.font = UIFont.systemFont(ofSize: 18)
+            label10.font = UIFont.systemFont(ofSize: 18)
+            label11.font = UIFont.systemFont(ofSize: 18)
+            label12.font = UIFont.systemFont(ofSize: 18)
+            label13.font = UIFont.systemFont(ofSize: 18)
+            label14.font = UIFont.systemFont(ofSize: 18)
+            label15.font = UIFont.systemFont(ofSize: 18)
         }
     }
     
+    func configureCell(name:String,age:String,sName:String,sGrade:String,mob:String,mail:String,fathName:String,fathNum:String,mothName:String,mothNum:String,s11:String,s12:String,s21:String?,s22:String?,s23:String?,payments:String?,ref:String,size:String?){
+        label1.text = name
+        label2.text = age
+        label3.text = sName
+        label4.text = sGrade
+        label5.text = mob
+        label6.text = mail
+        label7.text = fathName
+        label8.text = fathNum
+        label9.text = mothName
+        label10.text = mothNum
+        label11.text = s11
+        label12.text = s12
+        label17.text = ref
+        if let sat21 = s21{
+            label13.text = sat21
+        }else{
+            label13.text = nil
+        }
+        if let sat22 = s22{
+            label14.text = sat22
+        }else{
+            label14.text = nil
+        }
+        if let sat23 = s23{
+            label15.text = sat23
+        }else{
+            label15.text = nil
+        }
+        if let p = payments{
+            label16.text = p
+        }
+        setupFont(size)
+    }
+    func configureCellForTeachers(name:String,age:String,sName:String,sGrade:String,mob:String,mail:String,payments:String?,size:String?){
+        label1.text = name
+        label2.text = age
+        label3.text = sName
+        label4.text = sGrade
+        label5.text = mob
+        label6.text = mail
+        if let p = payments{
+            label16.text = p
+        }
+        label7.isHidden = true
+        label8.isHidden = true
+        label9.isHidden = true
+        label10.isHidden = true
+        label11.isHidden = true
+        label12.isHidden = true
+        label13.isHidden = true
+        label14.isHidden = true
+        label15.isHidden = true
+        label17.isHidden = true
+        setupFont(size)
+    }
 }

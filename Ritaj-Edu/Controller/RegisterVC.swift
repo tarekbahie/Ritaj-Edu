@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class RegisterVC: UIViewController,UITextFieldDelegate {
     let image : UIImageView = {
@@ -19,21 +20,23 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
     }()
     let emailTxtField : UITextField = {
         let txt = UITextField()
-        txt.backgroundColor = UIColor.systemTeal
-        txt.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.backgroundColor = UIColor(named: "retajBlue")
+        txt.placeholder = "Enter your Email"
+        txt.autocapitalizationType = .none
         return txt
     }()
     let passTxtField : UITextField = {
         let txt = UITextField()
-        txt.backgroundColor = UIColor.systemTeal
-        txt.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+        txt.backgroundColor = UIColor(named: "retajBlue")
+        txt.placeholder = "Enter your Password"
         txt.isSecureTextEntry = true
+        txt.autocapitalizationType = .none
         return txt
     }()
     let registerBtn:UIButton={
         let btn = UIButton()
         btn.setTitle("Register", for: .normal)
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajBlue")
         return btn
     }()
     let closeBtn:UIButton={
@@ -45,20 +48,23 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
             btn.setImage(UIImage(named: "close")?.withRenderingMode(.alwaysTemplate), for: .normal)
         }
         btn.tintColor = .black
-        btn.backgroundColor = UIColor.systemBlue
+        btn.backgroundColor = UIColor(named: "retajBlue")
         btn.layer.cornerRadius = 25.0
         return btn
     }()
+    var stackHeightAnc : NSLayoutConstraint?
+    var emailHeightAnc : NSLayoutConstraint?
+    var passwHeightAnc : NSLayoutConstraint?
+    var registerHeightAnc : NSLayoutConstraint?
+    var closeBtnHeightAnc : NSLayoutConstraint?
+    var closeBtnWidthtAnc : NSLayoutConstraint?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupCloseBtnView()
+        setupFontSize()
         closeBtn.addTarget(self, action: #selector(handleClose), for: .touchUpInside)
-        if #available(iOS 13.0, *) {
-            view.backgroundColor = UIColor.systemBackground
-        } else {
-            view.backgroundColor = .white
-        }
+        view.backgroundColor = UIColor(named: "retajGreen")
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -71,7 +77,6 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
         let stack = UIStackView(arrangedSubviews: [emailTxtField,passTxtField,registerBtn])
         stack.axis = .vertical
         stack.distribution = .equalCentering
-        stack.spacing = 10.0
         stack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stack)
         view.addSubview(image)
@@ -83,12 +88,16 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
         
         stack.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         stack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        stack.widthAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.width).isActive = true
-        stack.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        stack.widthAnchor.constraint(equalToConstant: view.safeAreaLayoutGuide.layoutFrame.width - 20).isActive = true
+        stackHeightAnc = stack.heightAnchor.constraint(equalToConstant: 0)
+        stackHeightAnc?.isActive = true
         
-        emailTxtField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        passTxtField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        registerBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        emailHeightAnc = emailTxtField.heightAnchor.constraint(equalToConstant: 0)
+        emailHeightAnc?.isActive = true
+        passwHeightAnc = passTxtField.heightAnchor.constraint(equalToConstant: 0)
+        passwHeightAnc?.isActive = true
+        registerHeightAnc = registerBtn.heightAnchor.constraint(equalToConstant: 0)
+        registerHeightAnc?.isActive = true
         
     }
     @objc func handleTap(){
@@ -96,15 +105,25 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
         passTxtField.resignFirstResponder()
     }
     @objc func handleRegister(){
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultMaskType(.gradient)
+        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setHapticsEnabled(true)
       if let e = emailTxtField.text , e != "", let p = passTxtField.text, p != "" {
-        Auth.auth().createUser(withEmail: e, password: p) { (res, err) in
+        SVProgressHUD.show()
+        Auth.auth().createUser(withEmail: e.lowercased(), password: p) { (res, err) in
             if let error = err{
+                SVProgressHUD.dismiss()
                 self.showAlert(msg: error.localizedDescription, title: "Error registering user", signIn: nil)
             }else{
                 Auth.auth().signIn(withEmail: e, password: p) { (signRes, SignErr) in
                     if let signinErr = SignErr{
+                        SVProgressHUD.dismiss()
                         self.showAlert(msg: signinErr.localizedDescription, title: "Error signing in", signIn: nil)
                     }else{
+                        SVProgressHUD.dismiss()
+//                        let pushManager = PushNotificationManager(userID: e)
+//                        pushManager.registerForPushNotifications()
                         self.dismiss(animated: true, completion: nil)
                     }
                 }
@@ -112,6 +131,7 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
             }
         }
         }else{
+        SVProgressHUD.dismiss()
         showAlert(msg: "Please check email and password fields", title: "Missing data", signIn: nil)
         }
     }
@@ -131,5 +151,36 @@ class RegisterVC: UIViewController,UITextFieldDelegate {
     }
     @objc func handleClose(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func setupFontSize(){
+        guard let _ = DataService.instance.size else{
+            closeBtnHeightAnc?.constant = 50
+            closeBtnWidthtAnc?.constant = 50
+            registerHeightAnc?.constant = 40
+            passwHeightAnc?.constant = 40
+            emailHeightAnc?.constant = 40
+            stackHeightAnc?.constant = 140
+            emailTxtField.font = UIFont.systemFont(ofSize: 20)
+            passTxtField.font = UIFont.systemFont(ofSize: 20)
+            emailTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20)])
+            passTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20)])
+            registerBtn.setAttributedTitle(NSAttributedString(string: "Register", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 20) ]), for: .normal)
+            closeBtn.layer.cornerRadius = 25.0
+            return
+        }
+        closeBtnHeightAnc?.constant = 50
+        closeBtnWidthtAnc?.constant = 50
+        registerHeightAnc?.constant = 80
+        passwHeightAnc?.constant = 80
+        emailHeightAnc?.constant = 80
+        stackHeightAnc?.constant = 280
+        emailTxtField.font = UIFont.systemFont(ofSize: 40)
+        passTxtField.font = UIFont.systemFont(ofSize: 40)
+        emailTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Email", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40)])
+        passTxtField.attributedPlaceholder = NSAttributedString(string: "Enter your Password", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40)])
+        registerBtn.setAttributedTitle(NSAttributedString(string: "Register", attributes: [NSAttributedString.Key.font :UIFont.systemFont(ofSize: 40) ]), for: .normal)
+        closeBtn.layer.cornerRadius = 25.0
+        
     }
 }

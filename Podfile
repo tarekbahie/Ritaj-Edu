@@ -10,4 +10,6 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'SVProgressHUD', '~> 2.2'
+pod 'Firebase/Messaging'
+pod 'SwiftCSVExport' , '= 2.3.0'
 end

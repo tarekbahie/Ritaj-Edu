@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47082B7024AB589F00AC804F /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47082B6F24AB589F00AC804F /* NotificationsVC.swift */; };
+		4713BBE824AA3730006516E3 /* TeacherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4713BBE724AA3730006516E3 /* TeacherVC.swift */; };
+		4713BBEA24AA431E006516E3 /* ComposeTeacherMsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4713BBE924AA431E006516E3 /* ComposeTeacherMsgView.swift */; };
+		473F9A5B24AE394D0069AA3B /* ExcelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473F9A5A24AE394D0069AA3B /* ExcelVC.swift */; };
 		4742C639240D7879002489CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C638240D7879002489CD /* AppDelegate.swift */; };
 		4742C63D240D7879002489CD /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63C240D7879002489CD /* AboutVC.swift */; };
 		4742C63F240D7879002489CD /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C63E240D7879002489CD /* LoginVC.swift */; };
@@ -14,6 +18,8 @@
 		4742C647240D7879002489CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4742C645240D7879002489CD /* LaunchScreen.storyboard */; };
 		4742C64F240DA0E0002489CD /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C64E240DA0E0002489CD /* RegisterVC.swift */; };
 		4742C651240DA17B002489CD /* LoginOrRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4742C650240DA17B002489CD /* LoginOrRegisterVC.swift */; };
+		47677DC024ABF49200B531FE /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47677DBF24ABF49200B531FE /* PushNotificationManager.swift */; };
+		47677DC224ABF99E00B531FE /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47677DC124ABF99E00B531FE /* PushNotificationSender.swift */; };
 		476DB46E240E934A0083C5EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 476DB46D240E934A0083C5EE /* GoogleService-Info.plist */; };
 		476DB472240ED5150083C5EE /* DataCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB471240ED5150083C5EE /* DataCollectionVC.swift */; };
 		476DB474240ED5470083C5EE /* CenterAnnouncementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */; };
@@ -21,12 +27,18 @@
 		476DB478240EF41B0083C5EE /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB477240EF41B0083C5EE /* AdminVC.swift */; };
 		476DB47A240EF4BC0083C5EE /* StudentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476DB479240EF4BC0083C5EE /* StudentCell.swift */; };
 		479463E62411929800C5ECF3 /* MsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479463E52411929800C5ECF3 /* MsgCell.swift */; };
+		47B62B8C242F64D6008F5CD7 /* ComposeMsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B62B8B242F64D6008F5CD7 /* ComposeMsgView.swift */; };
+		47FF5AE824A8726B00B936F5 /* StudentSatDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FF5AE724A8726B00B936F5 /* StudentSatDataVC.swift */; };
 		BF235AE962B4ADDAF9D02F2C /* Pods_Ritaj_Edu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2F4DB1AD7BBDED5852F1465 /* Pods_Ritaj_Edu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3C9F6CDC088A8E8FF7BD2EDD /* Pods-Ritaj-Edu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ritaj-Edu.debug.xcconfig"; path = "Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu.debug.xcconfig"; sourceTree = "<group>"; };
-		4742C635240D7879002489CD /* Ritaj-Edu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ritaj-Edu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47082B6F24AB589F00AC804F /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		4713BBE724AA3730006516E3 /* TeacherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherVC.swift; sourceTree = "<group>"; };
+		4713BBE924AA431E006516E3 /* ComposeTeacherMsgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTeacherMsgView.swift; sourceTree = "<group>"; };
+		473F9A5A24AE394D0069AA3B /* ExcelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelVC.swift; sourceTree = "<group>"; };
+		4742C635240D7879002489CD /* Retaj-Edu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retaj-Edu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4742C638240D7879002489CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4742C63C240D7879002489CD /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		4742C63E240D7879002489CD /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -35,6 +47,9 @@
 		4742C648240D7879002489CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4742C64E240DA0E0002489CD /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		4742C650240DA17B002489CD /* LoginOrRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOrRegisterVC.swift; sourceTree = "<group>"; };
+		47677DBE24ABF3BD00B531FE /* Retaj-Edu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Retaj-Edu.entitlements"; sourceTree = "<group>"; };
+		47677DBF24ABF49200B531FE /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		47677DC124ABF99E00B531FE /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		476DB46D240E934A0083C5EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		476DB471240ED5150083C5EE /* DataCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionVC.swift; sourceTree = "<group>"; };
 		476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAnnouncementsVC.swift; sourceTree = "<group>"; };
@@ -42,6 +57,8 @@
 		476DB477240EF41B0083C5EE /* AdminVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
 		476DB479240EF4BC0083C5EE /* StudentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCell.swift; sourceTree = "<group>"; };
 		479463E52411929800C5ECF3 /* MsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsgCell.swift; sourceTree = "<group>"; };
+		47B62B8B242F64D6008F5CD7 /* ComposeMsgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeMsgView.swift; sourceTree = "<group>"; };
+		47FF5AE724A8726B00B936F5 /* StudentSatDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSatDataVC.swift; sourceTree = "<group>"; };
 		D548B7EFA8B2A84936557BDA /* Pods-Ritaj-Edu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ritaj-Edu.release.xcconfig"; path = "Target Support Files/Pods-Ritaj-Edu/Pods-Ritaj-Edu.release.xcconfig"; sourceTree = "<group>"; };
 		F2F4DB1AD7BBDED5852F1465 /* Pods_Ritaj_Edu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ritaj_Edu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,7 +89,7 @@
 		4742C636240D7879002489CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4742C635240D7879002489CD /* Ritaj-Edu.app */,
+				4742C635240D7879002489CD /* Retaj-Edu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -80,6 +97,7 @@
 		4742C637240D7879002489CD /* Ritaj-Edu */ = {
 			isa = PBXGroup;
 			children = (
+				47677DBE24ABF3BD00B531FE /* Retaj-Edu.entitlements */,
 				47887F8D2411818600AE8EAD /* Model */,
 				47887F8C2411817A00AE8EAD /* View */,
 				47887F8B2411817200AE8EAD /* Controller */,
@@ -101,6 +119,10 @@
 				476DB471240ED5150083C5EE /* DataCollectionVC.swift */,
 				476DB473240ED5470083C5EE /* CenterAnnouncementsVC.swift */,
 				476DB477240EF41B0083C5EE /* AdminVC.swift */,
+				47FF5AE724A8726B00B936F5 /* StudentSatDataVC.swift */,
+				4713BBE724AA3730006516E3 /* TeacherVC.swift */,
+				47082B6F24AB589F00AC804F /* NotificationsVC.swift */,
+				473F9A5A24AE394D0069AA3B /* ExcelVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,6 +132,8 @@
 			children = (
 				476DB479240EF4BC0083C5EE /* StudentCell.swift */,
 				479463E52411929800C5ECF3 /* MsgCell.swift */,
+				47B62B8B242F64D6008F5CD7 /* ComposeMsgView.swift */,
+				4713BBE924AA431E006516E3 /* ComposeTeacherMsgView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				476DB475240EE87F0083C5EE /* DataService.swift */,
+				47677DBF24ABF49200B531FE /* PushNotificationManager.swift */,
+				47677DC124ABF99E00B531FE /* PushNotificationSender.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,7 +184,7 @@
 			);
 			name = "Ritaj-Edu";
 			productName = "Ritaj-Edu";
-			productReference = 4742C635240D7879002489CD /* Ritaj-Edu.app */;
+			productReference = 4742C635240D7879002489CD /* Retaj-Edu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -254,17 +280,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47677DC024ABF49200B531FE /* PushNotificationManager.swift in Sources */,
 				4742C63F240D7879002489CD /* LoginVC.swift in Sources */,
 				476DB474240ED5470083C5EE /* CenterAnnouncementsVC.swift in Sources */,
 				4742C651240DA17B002489CD /* LoginOrRegisterVC.swift in Sources */,
+				47082B7024AB589F00AC804F /* NotificationsVC.swift in Sources */,
 				4742C64F240DA0E0002489CD /* RegisterVC.swift in Sources */,
 				4742C63D240D7879002489CD /* AboutVC.swift in Sources */,
+				473F9A5B24AE394D0069AA3B /* ExcelVC.swift in Sources */,
+				4713BBE824AA3730006516E3 /* TeacherVC.swift in Sources */,
 				476DB47A240EF4BC0083C5EE /* StudentCell.swift in Sources */,
+				47FF5AE824A8726B00B936F5 /* StudentSatDataVC.swift in Sources */,
 				476DB472240ED5150083C5EE /* DataCollectionVC.swift in Sources */,
+				4713BBEA24AA431E006516E3 /* ComposeTeacherMsgView.swift in Sources */,
 				4742C639240D7879002489CD /* AppDelegate.swift in Sources */,
+				47677DC224ABF99E00B531FE /* PushNotificationSender.swift in Sources */,
 				476DB478240EF41B0083C5EE /* AdminVC.swift in Sources */,
 				479463E62411929800C5ECF3 /* MsgCell.swift in Sources */,
 				476DB476240EE87F0083C5EE /* DataService.swift in Sources */,
+				47B62B8C242F64D6008F5CD7 /* ComposeMsgView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +435,7 @@
 			baseConfigurationReference = 3C9F6CDC088A8E8FF7BD2EDD /* Pods-Ritaj-Edu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ritaj-Edu/Retaj-Edu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5694RS5;
 				INFOPLIST_FILE = "Ritaj-Edu/Info.plist";
@@ -410,7 +445,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bahie.Ritaj-Edu";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Retaj-Edu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -421,6 +456,7 @@
 			baseConfigurationReference = D548B7EFA8B2A84936557BDA /* Pods-Ritaj-Edu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ritaj-Edu/Retaj-Edu.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S4F5694RS5;
 				INFOPLIST_FILE = "Ritaj-Edu/Info.plist";
@@ -430,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bahie.Ritaj-Edu";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Retaj-Edu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
